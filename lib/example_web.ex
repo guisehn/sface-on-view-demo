@@ -27,10 +27,11 @@ defmodule ExampleWeb do
     end
   end
 
+  @templates_root "lib/example_web/templates"
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/example_web/templates",
+        root: unquote(@templates_root),
         namespace: ExampleWeb
 
       # Import convenience functions from controllers
@@ -39,7 +40,10 @@ defmodule ExampleWeb do
 
       # Include shared imports and aliases for views
       unquote(view_helpers())
+
       import Surface
+
+      use Surface.View, root: unquote(@templates_root)
     end
   end
 
