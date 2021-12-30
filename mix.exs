@@ -7,7 +7,7 @@ defmodule Example.MixProject do
       version: "0.1.0",
       elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:gettext] ++ Mix.compilers(),
+      compilers: [:gettext] ++ Mix.compilers() ++ [:surface],
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
@@ -46,7 +46,8 @@ defmodule Example.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:surface, github: "guisehn/surface", ref: "sface-on-view"}
+      {:surface, github: "guisehn/surface", ref: "sface-on-view", override: true},
+      {:surface_formatter, "~> 0.6.0"}
     ]
   end
 
